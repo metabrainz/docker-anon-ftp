@@ -1,0 +1,9 @@
+ftpd:
+    build: .
+    ports:
+        - "20-21:20-21"
+        - "65500-65515:65500-65515"
+    volumes:
+        - "/tmp:/var/ftp:ro"
+    environment:
+        - FTPD_BANNER=Anonymous FTP server
