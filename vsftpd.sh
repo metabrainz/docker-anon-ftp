@@ -13,6 +13,9 @@ MAX_CLIENTS=${MAX_CLIENTS:-50}
 ANON_MAX_RATE=${ANON_MAX_RATE:-6250000}
 FTPD_BANNER=${FTPD_BANNER:-"Welcome to an awesome public FTP Server"}
 BANNER_FILE=${BANNER_FILE:-""}
+HIDE_FILE=${HIDE_FILE:-""}
+DENY_FILE=${DENY_FILE:-""}
+
 
 [ -f /etc/vsftpd.conf ] || cat <<EOF > /etc/vsftpd.conf
 listen=YES
@@ -40,6 +43,8 @@ anon_max_rate=${ANON_MAX_RATE}
 ftpd_banner=${FTPD_BANNER}
 banner_file=${BANNER_FILE}
 pasv_address=${PASV_ADDRESS}
+hide_file=${HIDE_FILE}
+deny_file=${DENY_FILE}
 EOF
 
 exec /usr/sbin/vsftpd  
